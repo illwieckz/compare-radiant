@@ -12,11 +12,19 @@ For example you can import GtkRadiant and NetRadiant source trees this way:
 This way you can compare them with your favorite diffing tool:
 
 ```sh
-meld translated/gtkradiant/editor/radiant translated/netradiant/editor/radiant
+meld translated/gtkradiant translated/netradiant
+```
+
+Same between DarkRadiant and ETXRadiant:
+
+```sh
+./do.sh --translate darkradiant etxreal
+meld translated/darkradiant translated/etxreal
 ```
 
 These are editor trees supported:
 - AARadiant from AlienArena (ECToo)
+- ETXRadiant from ET-XreaL (XreaL)
 - GtkRadiant from Id Software (TTimo)
 - NetRadiant from Xonotic
 - ODRadiant from Overdose (Odblur)
@@ -24,6 +32,7 @@ These are editor trees supported:
 - DarkRadiant from CodeReader
 
 These are compiler trees supported:
+- ETXMap from ET-XreaL (XreaL)
 - Q3map2 from GtkRadiant (TTimo)
 - Q3map2 from NetRadiant (Xonotic)
 - Q3map2 from UrbanTerror (TTimo)
@@ -58,6 +67,7 @@ trees:
 	aaradiant
 	daemonmap
 	darkradiant
+	etxreal
 	jack
 	gtkradiant
 	netradiant

@@ -15,6 +15,7 @@ listTree () {
 	aaradiant
 	daemonmap
 	darkradiant
+	etxreal
 	jack
 	gtkradiant
 	netradiant
@@ -242,6 +243,9 @@ fetchTree () {
 		'daemonmap')
 			cloneGit "${tree_name}" 'https://github.com/Unvanquished/daemonmap.git'
 		;;
+		'etxreal')
+			cloneGit "${tree_name}" 'http://git.code.sf.net/p/xreal/ET-XreaL'
+		;;
 		'darkradiant')
 			cloneGit "${tree_name}" 'https://github.com/codereader/DarkRadiant.git'
 		;;
@@ -299,6 +303,16 @@ transTree () {
 			rsyncDir "${original_dir}/${tree_name}/libs" "${translated_dir}/${tree_name}/${editor_dir}/libs"
 			rsyncDir "${original_dir}/${tree_name}/plugins" "${translated_dir}/${tree_name}/${editor_dir}/plugins"
 			rsyncDir "${original_dir}/${tree_name}/radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
+			uncrustifyTree "${tree_name}"
+			rewriteString "${tree_name}"
+		;;
+		'etxreal')
+			rsyncDir "${original_dir}/${tree_name}/src/tools/etxradiant/include" "${translated_dir}/${tree_name}/${editor_dir}/include"
+			rsyncDir "${original_dir}/${tree_name}/src/tools/etxradiant/libs" "${translated_dir}/${tree_name}/${editor_dir}/libs"
+			rsyncDir "${original_dir}/${tree_name}/src/tools/etxradiant/plugins" "${translated_dir}/${tree_name}/${editor_dir}/plugins"
+			rsyncDir "${original_dir}/${tree_name}/src/tools/etxradiant/radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
+			rsyncDir "${original_dir}/${tree_name}/src/tools/common" "${translated_dir}/${tree_name}/${compiler_dir}/common"
+			rsyncDir "${original_dir}/${tree_name}/src/tools/etxmap" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
 			uncrustifyTree "${tree_name}"
 			rewriteString "${tree_name}"
 		;;
