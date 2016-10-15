@@ -186,13 +186,7 @@ cppToC() {
 	then
 		printNotice "renaming cpp to c from directory: ${working_dir}"
 		(
-			find "${working_dir}" -maxdepth 1 -exec rename --verbose 's/\.cpp$/.c/' {} \;
-#			cd "${working_dir}"
-#			find * -maxdepth 0 -name '*.cpp' \
-#			| while read file_name
-#			do
-#				mv --verbose "${file_name}" "$(basename "${file_name}" .cpp).c"
-#			done
+			find "${working_dir}" -maxdepth 1 -exec rename --force --verbose 's/\.cpp$/.c/' {} \;
 		)
 	else
 		printError "directory inexistent: ${working_dir}"
@@ -204,7 +198,7 @@ lowerCaseDir () {
 	if [ -d "${working_dir}" ]
 	then
 		printNotice "lowering case file names from directory: ${working_dir}"
-		find "${working_dir}" -maxdepth 1 -exec rename --verbose 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
+		find "${working_dir}" -maxdepth 1 -exec rename --force --verbose 's/(.*)\/([^\/]*)/$1\/\L$2/' {} \;
 	else
 		printError "directory inexistent: ${working_dir}"
 	fi
@@ -510,7 +504,6 @@ then
 	for tree_name in ${tree_list}
 	do
 		fetchTree "${tree_name}"
-		cleanTree "${tree_name}"
 		transTree "${tree_name}"
 	done
 fi
