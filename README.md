@@ -3,7 +3,12 @@ Radiant Compare
 
 This is a tool to help diffing multiple forks of the radiant editor and q3map2 compiler. It downloads multiple source trees, rename some stuff and apply an `uncrustify` profile on them to reduce diff noise. Original trees take places in `original` directory while translated trees take places in the `translated` directory.
 
-For example you can import GtkRadiant and NetRadiant source trees this way:
+Source trees are fetched as repositories so it's easy to compare revisions. To save time, some git trees are fetched using svn though the GitHub svn bridge when the radiant stuff is just a part of an heavier repository.
+
+Examples
+--------
+
+You can import GtkRadiant and NetRadiant source trees this way:
 
 ```sh
 ./do.sh --translate gtkradiant netradiant
@@ -21,6 +26,9 @@ Same between DarkRadiant and ETXRadiant:
 ./do.sh --translate darkradiant etxreal
 meld translated/darkradiant translated/etxreal
 ```
+
+Suported trees
+--------------
 
 These are editor trees supported:
 - AARadiant from AlienArena (ECToo)
