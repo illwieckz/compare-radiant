@@ -87,6 +87,11 @@ trees:
 
 ```
 
+Dependencies
+------------
+
+You will need `git`, `svn`, `rsync`, `uncrustify` and `sed` to process the common repositories, but also `dd`, `gzip`, `tar` and `bsdtar` (yes, both) for the cryptic q3map2 code extraction from _J.A.C.K._ installer.
+
 Warning
 -------
 
