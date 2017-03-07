@@ -1,6 +1,6 @@
 #! /bin/sh
 
-uncrustify_config='tools/uncrustify.cfg'
+uncrustify_config_list='tools/uncrustify.cfg tools/uncrustify-strong.cfg'
 sed_script='tools/rewrite.sed'
 
 original_dir='original'
@@ -63,10 +63,13 @@ uncrustifyTree () {
 	if [ -d "${translated_dir}/${tree_name}" ]
 	then
 		printNotice "translated tree: ${tree_name}"
-		find "${translated_dir}/${tree_name}" -type f -name '*.c' -o -name '*.h' \
-		| uncrustify -c "${uncrustify_config}" --no-backup --mtime -l C -F '/dev/stdin'
-		find "${translated_dir}/${tree_name}" -type f -name '*.cpp' \
-		| uncrustify -c "${uncrustify_config}" --no-backup --mtime -l CPP -F '/dev/stdin'
+		for uncrustify_config in ${uncrustify_config_list}
+		do
+			find "${translated_dir}/${tree_name}" -type f -name '*.c' -o -name '*.h' \
+			| uncrustify -c "${uncrustify_config}" --no-backup --mtime -l C -F '/dev/stdin'
+			find "${translated_dir}/${tree_name}" -type f -name '*.cpp' \
+			| uncrustify -c "${uncrustify_config}" --no-backup --mtime -l CPP -F '/dev/stdin'
+		done
 	else
 		printWarning "tree not translated: ${tree_name}"
 	fi
