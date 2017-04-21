@@ -17,6 +17,7 @@ listTree () {
 	darkradiant
 	etxreal
 	jack
+	map220
 	gtkradiant
 	netradiant
 	overdose
@@ -135,7 +136,12 @@ cloneGit () {
 	then
 		printNotice "fetching tree: ${tree_name}"
 		mkdir --parents --verbose "${original_dir}"
-		git clone "${2}" "${original_dir}/${tree_name}"
+		if [ -z "${3}" ]
+		then
+			git clone "${2}" "${original_dir}/${tree_name}"
+		else
+			git clone -b "${3}" --single-branch "${2}" "${original_dir}/${tree_name}"
+		fi
 	else
 		printNotice "tree already fetched: ${tree_name}"
 	fi
@@ -252,6 +258,9 @@ fetchTree () {
 		'jack')
 			getJackCompiler "${tree_name}"
 		;;
+		'map220')
+			cloneGit "${tree_name}" "https://github.com/FreeSlave/GtkRadiant.git" "map220"
+		;;
 		'netradiant')
 			cloneGit "${tree_name}" 'https://gitlab.com/xonotic/netradiant.git'
 		;;
@@ -331,6 +340,12 @@ transTree () {
 			uncrustifyTree "${tree_name}"
 			rewriteString "${tree_name}"
 		;;
+		'map220')
+			rsyncDir "${original_dir}/${tree_name}/tools/quake3/common" "${translated_dir}/${tree_name}/${compiler_dir}/common"
+			rsyncDir "${original_dir}/${tree_name}/tools/quake3/q3map2" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
+			uncrustifyTree "${tree_name}"
+			rewriteString "${tree_name}"
+		;;
 		'overdose')
 			rsyncDir "${original_dir}/${tree_name}/ODRadiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 			rsyncDir "${original_dir}/${tree_name}/ODMap" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
@@ -381,7 +396,7 @@ updateTree () {
 		'aaradiant'|'overdose'|'ufoai'|'xreal')
 			updateSvn "${tree_name}"
 		;;
-		'daemonmap'|'darkradiant'|'gtkradiant'|'netradiant')
+		'daemonmap'|'darkradiant'|'gtkradiant'|'netradiant'|'map220')
 			pullGit "${tree_name}"
 		;;
 		'jack')

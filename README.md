@@ -45,10 +45,11 @@ These are compiler trees supported (all Q3map2 forks):
 - ETXMap from ET-XreaL (XreaL)
 - ODMap from Overdose (Odblur)
 - Q3map2 from GtkRadiant (TTimo)
-- Q3map2 from [J.A.C.K.](http://jack.hlfx.ru/en/)
+- Q3map2 from [J.A.C.K.](http://jack.hlfx.ru/en/) (XaeroX)
 - Q3map2 from NetRadiant (Xonotic)
 - Q3map2 from UrbanTerror (TTimo)
 - Ufo2map from UFO:AI
+- [Map220](https://github.com/FreeSlave/GtkRadiant/tree/map220) (J.A.C.K. changes from XaeroX ported by FreeSlave to GtkRadiant tree)
 - Xmap2 from [XreaL](https://github.com/raynorpat/xreal/) (RaynorPat)
 
 Help
@@ -79,6 +80,7 @@ trees:
 	darkradiant
 	etxreal
 	jack
+	map220
 	gtkradiant
 	netradiant
 	overdose
