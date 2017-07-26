@@ -246,11 +246,11 @@ fetchTree () {
 		'daemonmap')
 			cloneGit "${tree_name}" 'https://github.com/Unvanquished/daemonmap.git'
 		;;
-		'etxreal')
-			cloneGit "${tree_name}" 'http://git.code.sf.net/p/xreal/ET-XreaL'
-		;;
 		'darkradiant')
 			cloneGit "${tree_name}" 'https://github.com/codereader/DarkRadiant.git'
+		;;
+		'etxreal')
+			cloneGit "${tree_name}" 'http://git.code.sf.net/p/xreal/ET-XreaL'
 		;;
 		'gtkradiant')
 			cloneGit "${tree_name}" 'https://github.com/TTimo/GtkRadiant.git'
