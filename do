@@ -440,12 +440,18 @@ printHelp () {
 	exit
 }
 
+if [ -z "${@}" ]
+then
+	printHelp
+fi
+
 action_clean=false
 action_fetch=false
 action_purge=false
 action_trans=false
 action_update=false
 tree_list=""
+
 for var_arg in ${@}
 do
 	case ${var_arg} in
