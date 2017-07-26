@@ -20,7 +20,7 @@ Examples
 You can import GtkRadiant and NetRadiant source trees this way:
 
 ```sh
-./do.sh --translate gtkradiant netradiant
+./do --translate gtkradiant netradiant
 ```
 
 This way you can compare them with your favorite diffing tool:
@@ -32,7 +32,7 @@ meld translated/gtkradiant translated/netradiant
 Same between DarkRadiant and ETXRadiant:
 
 ```sh
-./do.sh --translate darkradiant etxreal
+./do --translate darkradiant etxreal
 meld translated/darkradiant translated/etxreal
 ```
 
@@ -67,7 +67,7 @@ Help
 ```
 EOF
 
-./do.sh --help
+./do --help
 
 cat <<\EOF
 ```
