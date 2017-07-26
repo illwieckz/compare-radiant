@@ -41,6 +41,7 @@ These are editor trees supported:
 - [UFORadiant](https://github.com/ufoai/ufoai/) from [UFO:AI](http://ufoai.org) _- GtkRadiant fork with DarkRadiant additions_
 
 These are compiler trees supported (all Q3map2 forks):
+- [BloodMap](https://github.com/paulvortex/BloodMap) from [RazorWind](http://razorwind.ru/) (paulvortex)
 - [Daemonmap](https://github.com/Unvanquished/daemonmap) from [Unvanquished](https://unvanquished.net)
 - ETXMap from ET-XreaL (XreaL)
 - ODMap from Overdose (Odblur)
@@ -76,6 +77,7 @@ args:
 trees:
 	all
 	aaradiant
+	bloodmap
 	daemonmap
 	darkradiant
 	etxreal

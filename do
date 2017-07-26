@@ -13,6 +13,7 @@ compiler_name='q3map2'
 listTree () {
 	cat <<-EOF
 	aaradiant
+	bloodmap
 	daemonmap
 	darkradiant
 	etxreal
@@ -46,14 +47,31 @@ isTree () {
 	[ "x${test_name}" = "x${tree_name}" ]
 }
 
+rmDir () {
+	if [ -d "${1}" ]
+	then
+		rm --recursive --verbose --force "${1}"
+	fi
+}
+
+mkDir () {
+	mkdir --parents --verbose "${1}"
+}
+
+mvDir () {
+	mkdir --parents "${2}"
+	rm --recursive --verbose --force "${2}"
+	mv --verbose "${1}" "${2}"
+}
+
 rsyncDir () {
 	source_dir="${1}"
 	destination_dir="${2}"
 	if [ -d "${source_dir}" ]
 	then
 		printNotice "rsyncing directories: ${source_dir} ${destination_dir}"
-		mkdir --parents --verbose "${destination_dir}"
-		rsync --archive --checksum --verbose "${source_dir}/." "${destination_dir}/."
+		mkDir "${destination_dir}"
+		rsync --archive --checksum --verbose --delete-after "${source_dir}/." "${destination_dir}/."
 	else
 		printError "directory inexistent: ${source_dir}"
 	fi
@@ -109,7 +127,7 @@ checkoutSvn () {
 	if ! [ -d "${original_dir}/${tree_name}" ]
 	then
 		printNotice "fetching tree: ${tree_name}"
-		mkdir --parents --verbose "${original_dir}"
+		mkDir "${original_dir}"
 		svn checkout "${2}" "${original_dir}/${tree_name}"
 	else
 		printNotice "tree already fetched: ${tree_name}"
@@ -135,7 +153,7 @@ cloneGit () {
 	if ! [ -d "${original_dir}/${tree_name}" ]
 	then
 		printNotice "fetching tree: ${tree_name}"
-		mkdir --parents --verbose "${original_dir}"
+		mkDir "${original_dir}"
 		if [ -z "${3}" ]
 		then
 			git clone "${2}" "${original_dir}/${tree_name}"
@@ -169,7 +187,7 @@ getJackCompiler () {
 	if ! [ -d "${jack_dir}" ]
 	then
 		printNotice "fetching tree: ${tree_name}"
-		mkdir --parents --verbose "${jack_dir}"
+		mkDir "${jack_dir}"
 		(
 			cd "${jack_dir}"	
 			wget -O "${jack_file}" "${jack_url}"
@@ -218,8 +236,7 @@ cleanTree () {
 	if isTree "${tree_name}"
 	then
 		printNotice "cleaning tree: ${tree_name}"
-		mkdir --parents "${translated_dir}/${tree_name}"
-		rm --recursive --force "${translated_dir}/${tree_name}"
+		rmDir "${translated_dir}/${tree_name}"
 	else
 			printError "unknown tree: ${tree_name}"
 	fi
@@ -230,8 +247,7 @@ purgeTree () {
 	if isTree "${tree_name}"
 	then
 		printNotice "purging tree: ${tree_name}"
-		mkdir --parents "${original_dir}/${tree_name}"
-		rm --recursive --force "${original_dir}/${tree_name}"
+		rmDir "${original_dir}/${tree_name}"
 	else
 		printError "unknown tree: ${tree_name}"
 	fi
@@ -242,6 +258,9 @@ fetchTree () {
 	case "${tree_name}" in
 		'aaradiant')
 			checkoutSvn "${tree_name}" 'https://github.com/ECToo/aa3rdparty/trunk/tools/aaradiant'
+		;;
+		'bloodmap')
+			cloneGit "${tree_name}" 'git@github.com:paulvortex/BloodMap.git'
 		;;
 		'daemonmap')
 			cloneGit "${tree_name}" 'https://github.com/Unvanquished/daemonmap.git'
@@ -296,6 +315,14 @@ transTree () {
 			uncrustifyTree "${tree_name}"
 			rewriteString "${tree_name}"
 			;;
+		'bloodmap')
+			rsyncDir "${original_dir}/${tree_name}/src" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
+			mvDir "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/common" "${translated_dir}/${tree_name}/${compiler_dir}/common"
+			mvDir "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/games" "${translated_dir}/${tree_name}/${compiler_dir}/games"
+			mvDir "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/libs" "${translated_dir}/${tree_name}/${editor_dir}/libs"
+			uncrustifyTree "${tree_name}"
+			rewriteString "${tree_name}"
+		;;
 		'daemonmap')
 			rsyncDir "${original_dir}/${tree_name}/src/include" "${translated_dir}/${tree_name}/${editor_dir}/include"
 			rsyncDir "${original_dir}/${tree_name}/src/libs" "${translated_dir}/${tree_name}/${editor_dir}/libs"
@@ -396,7 +423,7 @@ updateTree () {
 		'aaradiant'|'overdose'|'ufoai'|'xreal')
 			updateSvn "${tree_name}"
 		;;
-		'daemonmap'|'darkradiant'|'gtkradiant'|'netradiant'|'map220')
+		'bloodmap'|'daemonmap'|'darkradiant'|'gtkradiant'|'netradiant'|'map220')
 			pullGit "${tree_name}"
 		;;
 		'jack')
@@ -440,7 +467,7 @@ printHelp () {
 	exit
 }
 
-if [ -z "${@}" ]
+if [ "x${1}" = 'x' ]
 then
 	printHelp
 fi
