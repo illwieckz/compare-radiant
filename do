@@ -274,6 +274,9 @@ fetchTree () {
 		'darkradiant')
 			cloneGit "${tree_name}" 'https://github.com/codereader/DarkRadiant.git'
 		;;
+		'doom3')
+			cloneGit "${tree_name}" 'https://github.com/id-Software/DOOM-3.git'
+		;;
 		'etxreal')
 			cloneGit "${tree_name}" 'http://git.code.sf.net/p/xreal/ET-XreaL'
 		;;
@@ -347,6 +350,12 @@ transTree () {
 			rsyncDir "${original_dir}/${tree_name}/radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 			uncrustifyTree "${tree_name}"
 			rewriteString "${tree_name}"
+		;;
+		'doom3')
+			rsyncDir "${original_dir}/${tree_name}/neo/tools/radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
+			uncrustifyTree "${tree_name}"
+			rewriteString "${tree_name}"
+			lowerCaseDir "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 		;;
 		'etxreal')
 			rsyncDir "${original_dir}/${tree_name}/src/tools/etxradiant/include" "${translated_dir}/${tree_name}/${editor_dir}/include"
