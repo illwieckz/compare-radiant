@@ -27,6 +27,7 @@ listTree () {
 	quake3
 	ufoai
 	urbanterror
+	vecxis
 	xreal
 	EOF
 }
@@ -157,33 +158,33 @@ updateSvn () {
 }
 
 cloneGit () {
-	tree_name="${1}"
-	if ! [ -d "${original_dir}/${tree_name}" ]
+	final_tree_name="${1}"
+	if ! [ -d "${original_dir}/${final_tree_name}" ]
 	then
-		printNotice "fetching tree: ${tree_name}"
+		printNotice "fetching tree: ${final_tree_name}"
 		mkDir "${original_dir}"
 		if [ -z "${3}" ]
 		then
-			git clone "${2}" "${original_dir}/${tree_name}"
+			git clone "${2}" "${original_dir}/${final_tree_name}"
 		else
-			git clone -b "${3}" --single-branch "${2}" "${original_dir}/${tree_name}"
+			git clone -b "${3}" --single-branch "${2}" "${original_dir}/${final_tree_name}"
 		fi
 	else
-		printNotice "tree already fetched: ${tree_name}"
+		printNotice "tree already fetched: ${final_tree_name}"
 	fi
 }
 
 pullGit () {
-	tree_name="${1}"
-	if [ -d "${original_dir}/${tree_name}" ]
+	final_tree_name="${1}"
+	if [ -d "${original_dir}/${final_tree_name}" ]
 	then
-		printNotice "updating tree: ${tree_name}"
+		printNotice "updating tree: ${final_tree_name}"
 		(
-			cd "${original_dir}/${tree_name}"
+			cd "${original_dir}/${final_tree_name}"
 			git pull
 		)
 	else
-		printWarning "tree not fetched: ${tree_name}"
+		printWarning "tree not fetched: ${final_tree_name}"
 	fi
 }
 
@@ -309,6 +310,11 @@ fetchTree () {
 		'urbanterror')
 			fetchTree 'gtkradiant'
 		;;
+		'vecxis')
+			mkDir "${original_dir}/${tree_name}"
+			cloneGit "${tree_name}/vradiant" 'http://projects.gamebuf.com/Vecxis/vradiant.git'
+			cloneGit "${tree_name}/vmapc" 'http://projects.gamebuf.com/Vecxis/vmapc.git'
+		;;
 		'xreal')
 			checkoutSvn "${tree_name}" 'https://github.com/raynorpat/xreal/trunk/code/tools'
 		;;
@@ -426,6 +432,12 @@ transTree () {
 			uncrustifyTree "${tree_name}"
 			rewriteString "${tree_name}"
 		;;
+		'vecxis')
+			rsyncDir "${original_dir}/${tree_name}/vradiant" "${translated_dir}/${tree_name}/${editor_dir}"
+			rsyncDir "${original_dir}/${tree_name}/vmapc" "${translated_dir}/${tree_name}/${compiler_dir}"
+			uncrustifyTree "${tree_name}"
+			rewriteString "${tree_name}"
+		;;
 		'xreal')
 			rsyncDir "${original_dir}/${tree_name}/gtkradiant/include" "${translated_dir}/${tree_name}/${editor_dir}/include"
 			rsyncDir "${original_dir}/${tree_name}/gtkradiant/libs" "${translated_dir}/${tree_name}/${editor_dir}/libs"
@@ -458,6 +470,10 @@ updateTree () {
 		;;
 		'urbanterror')
 			updateTree 'gtkradiant'
+		;;
+		'vecxis')
+			pullGit "${tree_name}/vradiant"
+			pullGit "${tree_name}/vmapc"
 		;;
 		*)
 			printError "unknown tree: ${tree_name}"

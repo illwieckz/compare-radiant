@@ -51,6 +51,7 @@ These are editor trees supported:
 - [QioRadiant](https://sourceforge.net/projects/qio) from Qio (Vodin) _- Q3Radiant fork_
 - [Radiant](https://github.com/id-Software/DOOM-3/tree/master/neo/tools/radiant) from [Doom 3](https://github.com/id-Software/DOOM-3) (id Software)
 - [UFORadiant](https://github.com/ufoai/ufoai/) from [UFO:AI](http://ufoai.org) _- GtkRadiant fork with DarkRadiant additions_
+- [VRradiant](http://projects.gamebuf.com/Vecxis/vradiant) from [Vecxis](http://vecxis.com/) _-NetRadiant fork_
 
 These are compiler trees supported (all Q3map2 forks):
 
@@ -65,6 +66,7 @@ These are compiler trees supported (all Q3map2 forks):
 - Q3map2 from UrbanTerror (TTimo)
 - Ufo2map from UFO:AI
 - [Map220](https://github.com/FreeSlave/GtkRadiant/tree/map220) (J.A.C.K. changes from XaeroX ported by FreeSlave to GtkRadiant tree)
+- Vmapc from Vecxis
 - Xmap2 from [XreaL](https://github.com/raynorpat/xreal/) (RaynorPat)
 
 Help
