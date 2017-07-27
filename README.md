@@ -90,8 +90,8 @@ trees:
 	gtkradiant
 	netradiant
 	overdose
-	q3radiant
 	qio
+	quake3
 	ufoai
 	urbanterror
 	xreal
