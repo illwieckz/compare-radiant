@@ -462,7 +462,7 @@ updateTree () {
 		'aaradiant'|'overdose'|'ufoai'|'xreal')
 			updateSvn "${tree_name}"
 		;;
-		'bloodmap'|'daemonmap'|'darkradiant'|'gtkradiant'|'netradiant'|'map220')
+		'bloodmap'|'daemonmap'|'darkradiant'|'etxreal'|'gtkradiant'|'netradiant'|'map220'|'quake3'|'doom3')
 			pullGit "${tree_name}"
 		;;
 		'jack')
