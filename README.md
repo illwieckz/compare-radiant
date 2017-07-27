@@ -85,6 +85,7 @@ trees:
 	bloodmap
 	daemonmap
 	darkradiant
+	doom3
 	etxreal
 	jack
 	map220
