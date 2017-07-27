@@ -78,6 +78,11 @@ rsyncDir () {
 	fi
 }
 
+mvFile () {
+	mkdir --parents "$(dirname "${2}")"
+	mv --verbose "${1}" "${2}"
+}
+
 uncrustifyTree () {
 	tree_name="${1}"
 	if [ -d "${translated_dir}/${tree_name}" ]
@@ -394,6 +399,7 @@ transTree () {
 		'qio')
 			rsyncDir "${original_dir}/${tree_name}/q3radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 			uncrustifyTree "${tree_name}"
+			rewriteString "${tree_name}"
 			lowerCaseDir "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 		;;
 		'ufoai')
@@ -402,8 +408,7 @@ transTree () {
 			cppToC "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
 			uncrustifyTree "${tree_name}"
 			rewriteString "${tree_name}"
-			mv --verbose "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/common" \
-				"${translated_dir}/${tree_name}/${compiler_dir}/common"
+			mvDir "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/common" "${translated_dir}/${tree_name}/${compiler_dir}/common"
 		;;
 		'urbanterror')
 			rsyncDir "${original_dir}/gtkradiant/tools/urt/tools/quake3/q3map2" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
@@ -419,7 +424,7 @@ transTree () {
 			rsyncDir "${original_dir}/${tree_name}/xmap2" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
 			uncrustifyTree "${tree_name}"
 			rewriteString "${tree_name}"
-			mv --verbose "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/xmap2.h" \
+			mvFile "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/xmap2.h" \
 				"${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/${compiler_name}.h"
 		;;
 		*)
