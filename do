@@ -22,6 +22,7 @@ listTree () {
 	gtkradiant
 	netradiant
 	overdose
+	q3radiant
 	qio
 	ufoai
 	urbanterror
@@ -286,6 +287,9 @@ fetchTree () {
 		'overdose')
 			checkoutSvn "${tree_name}" "https://svn.code.sf.net/p/odblur/code/code/OverDose Tools"
 		;;
+		'q3radiant')
+			cloneGit "${tree_name}" 'https://github.com/id-Software/Quake-III-Arena.git'
+		;;
 		'qio')
 			checkoutSvn "${tree_name}" "https://svn.code.sf.net/p/qio/code/trunk/code/tools"
 		;;
@@ -379,6 +383,13 @@ transTree () {
 			uncrustifyTree "${tree_name}"
 			rewriteString "${tree_name}"
 			cppToC "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
+		;;
+		'q3radiant')
+			rsyncDir "${original_dir}/${tree_name}/q3radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
+			rsyncDir "${original_dir}/${tree_name}/q3map" "${translated_dir}/${tree_name}/${compiler_dir}/q3map"
+			uncrustifyTree "${tree_name}"
+			rewriteString "${tree_name}"
+			lowerCaseDir "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 		;;
 		'qio')
 			rsyncDir "${original_dir}/${tree_name}/q3radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"

@@ -40,20 +40,24 @@ Suported trees
 --------------
 
 These are editor trees supported:
+
 - [AARadiant](https://github.com/ECToo/aa3rdparty) from [Alien Arena](http://red.planetarena.org) (ECToo) _- GtkRadiant fork_
 - [DarkRadiant](http://darkradiant.sourceforge.net) from [The Dark Mod](http://www.thedarkmod.com) (CodeReader) _- GtkRadiant fork_
 - [ETXRadiant](https://sourceforge.net/p/xreal/ET-XreaL) from [ET-XreaL](http://www.moddb.com/mods/etxreal) (XreaL) _- DarkRadiant fork_
-- [GtkRadiant](http://icculus.org/gtkradiant) from id Software (TTimo)
+- [GtkRadiant](http://icculus.org/gtkradiant) from id Software (TTimo) _- Q3Radiant fork_
 - [NetRadiant](https://gitlab.com/xonotic/netradiant) from [Xonotic](http://xonotic.org/) _- GtkRadiant fork_
 - [ODRadiant](https://sourceforge.net/projects/odblur) from [Overdose](http://www.moddb.com/games/overdose) (Odblur) _- GtkRadiant fork_
+- [Q3Radiant](https://github.com/id-Software/Quake-III-Arena/tree/master/q3radiant) from [Quake III Arena](https://github.com/id-Software/Quake-III-Arena/) (id Software)
 - [QioRadiant](https://sourceforge.net/projects/qio) from Qio (Vodin) _- Q3Radiant fork_
 - [UFORadiant](https://github.com/ufoai/ufoai/) from [UFO:AI](http://ufoai.org) _- GtkRadiant fork with DarkRadiant additions_
 
 These are compiler trees supported (all Q3map2 forks):
+
 - [BloodMap](https://github.com/paulvortex/BloodMap) from [RazorWind](http://razorwind.ru/) (paulvortex)
 - [Daemonmap](https://github.com/Unvanquished/daemonmap) from [Unvanquished](https://unvanquished.net)
 - ETXMap from ET-XreaL (XreaL)
 - ODMap from Overdose (Odblur)
+- [Q3map](https://github.com/id-Software/Quake-III-Arena/tree/master/q3map) from [Quake III Arena](https://github.com/id-Software/Quake-III-Arena/) (id Software)
 - Q3map2 from GtkRadiant (TTimo)
 - Q3map2 from [J.A.C.K.](http://jack.hlfx.ru/en/) (XaeroX)
 - Q3map2 from NetRadiant (Xonotic)
