@@ -38,9 +38,9 @@ These are editor trees supported:
 - [GtkRadiant](http://icculus.org/gtkradiant) from id Software (TTimo) _- Q3Radiant fork_
 - [NetRadiant](https://gitlab.com/xonotic/netradiant) from [Xonotic](http://xonotic.org/) _- GtkRadiant fork_
 - [ODRadiant](https://sourceforge.net/projects/odblur) from [Overdose](http://www.moddb.com/games/overdose) (Odblur) _- GtkRadiant fork_
-- [Q3Radiant](https://github.com/id-Software/Quake-III-Arena/tree/master/q3radiant) from [Quake III Arena](https://github.com/id-Software/Quake-III-Arena/) (id Software)
+- [Q3Radiant](https://github.com/id-Software/Quake-III-Arena/tree/master/q3radiant) from [Quake III Arena](https://github.com/id-Software/Quake-III-Arena) (id Software)
 - [QioRadiant](https://sourceforge.net/projects/qio) from Qio (Vodin) _- Q3Radiant fork_
-- [Radiant](https://github.com/id-Software/DOOM-3/tree/master/neo/tools/radiant) from [Doom 3](https://github.com/id-Software/DOOM-3/) (id Software)
+- [Radiant](https://github.com/id-Software/DOOM-3/tree/master/neo/tools/radiant) from [Doom 3](https://github.com/id-Software/DOOM-3) (id Software)
 - [UFORadiant](https://github.com/ufoai/ufoai/) from [UFO:AI](http://ufoai.org) _- GtkRadiant fork with DarkRadiant additions_
 
 These are compiler trees supported (all Q3map2 forks):
