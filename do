@@ -266,7 +266,7 @@ fetchTree () {
 			checkoutSvn "${tree_name}" 'https://github.com/ECToo/aa3rdparty/trunk/tools/aaradiant'
 		;;
 		'bloodmap')
-			cloneGit "${tree_name}" 'git@github.com:paulvortex/BloodMap.git'
+			cloneGit "${tree_name}" 'https://github.com/paulvortex/BloodMap.git'
 		;;
 		'daemonmap')
 			cloneGit "${tree_name}" 'https://github.com/Unvanquished/daemonmap.git'
@@ -284,19 +284,19 @@ fetchTree () {
 			getJackCompiler "${tree_name}"
 		;;
 		'map220')
-			cloneGit "${tree_name}" "https://github.com/FreeSlave/GtkRadiant.git" "map220"
+			cloneGit "${tree_name}" 'https://github.com/FreeSlave/GtkRadiant.git' 'map220'
 		;;
 		'netradiant')
 			cloneGit "${tree_name}" 'https://gitlab.com/xonotic/netradiant.git'
 		;;
 		'overdose')
-			checkoutSvn "${tree_name}" "https://svn.code.sf.net/p/odblur/code/code/OverDose Tools"
+			checkoutSvn "${tree_name}" 'https://svn.code.sf.net/p/odblur/code/code/OverDose Tools'
 		;;
 		'q3radiant')
 			cloneGit "${tree_name}" 'https://github.com/id-Software/Quake-III-Arena.git'
 		;;
 		'qio')
-			checkoutSvn "${tree_name}" "https://svn.code.sf.net/p/qio/code/trunk/code/tools"
+			checkoutSvn "${tree_name}" 'https://svn.code.sf.net/p/qio/code/trunk/code/tools'
 		;;
 		'ufoai')
 			checkoutSvn "${tree_name}" 'https://github.com/ufoai/ufoai/trunk/src/tools'
