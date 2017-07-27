@@ -53,7 +53,7 @@ These are editor trees supported:
 - [UFORadiant](https://github.com/ufoai/ufoai/) from [UFO:AI](http://ufoai.org) _- GtkRadiant fork with DarkRadiant additions_
 - [VRradiant](http://projects.gamebuf.com/Vecxis/vradiant) from [Vecxis](http://vecxis.com/) _-NetRadiant fork_
 
-These are compiler trees supported (all Q3map2 forks):
+These are compiler trees supported (all Q3map2 forks, excpet Q3map of course):
 
 - [BloodMap](https://github.com/paulvortex/BloodMap) from [RazorWind](http://razorwind.ru/) (paulvortex)
 - [Daemonmap](https://github.com/Unvanquished/daemonmap) from [Unvanquished](https://unvanquished.net)
