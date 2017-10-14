@@ -21,6 +21,7 @@ listTree () {
 	jack
 	map220
 	gtkradiant
+	ncustom
 	netradiant
 	overdose
 	qio
@@ -292,6 +293,9 @@ fetchTree () {
 		'map220')
 			cloneGit "${tree_name}" 'https://github.com/FreeSlave/GtkRadiant.git' 'map220'
 		;;
+		'ncustom')
+			cloneGit "${tree_name}" "https://github.com/Garux/netradiant-custom.git"
+		;;
 		'netradiant')
 			cloneGit "${tree_name}" 'https://gitlab.com/xonotic/netradiant.git'
 		;;
@@ -375,7 +379,7 @@ transTree () {
 			uncrustifyTree "${tree_name}"
 			rewriteString "${tree_name}"
 		;;
-		'gtkradiant'|'netradiant')
+		'gtkradiant'|'ncustom'|'netradiant')
 			rsyncDir "${original_dir}/${tree_name}/contrib" "${translated_dir}/${tree_name}/${editor_dir}/contrib"
 			rsyncDir "${original_dir}/${tree_name}/include" "${translated_dir}/${tree_name}/${editor_dir}/include"
 			rsyncDir "${original_dir}/${tree_name}/libs" "${translated_dir}/${tree_name}/${editor_dir}/libs"
@@ -462,7 +466,7 @@ updateTree () {
 		'aaradiant'|'overdose'|'ufoai'|'xreal')
 			updateSvn "${tree_name}"
 		;;
-		'bloodmap'|'daemonmap'|'darkradiant'|'etxreal'|'gtkradiant'|'netradiant'|'map220'|'quake3'|'doom3')
+		'bloodmap'|'daemonmap'|'darkradiant'|'etxreal'|'gtkradiant'|'ncustom'|'netradiant'|'map220'|'quake3'|'doom3')
 			pullGit "${tree_name}"
 		;;
 		'jack')
