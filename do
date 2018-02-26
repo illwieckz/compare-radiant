@@ -396,7 +396,7 @@ transTree () {
 		;;
 		'jack')
 			rsyncDir "${original_dir}/${tree_name}/q3map2/src" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
-			mv --verbose "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/common" \
+			mvDir "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/common" \
 				"${translated_dir}/${tree_name}/${compiler_dir}/common"
 			uncrustifyTree "${tree_name}"
 			rewriteString "${tree_name}"
