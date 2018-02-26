@@ -19,6 +19,7 @@ listTree () {
 	doom3
 	etxreal
 	jack
+	jk2radiant
 	map220
 	gtkradiant
 	ncustom
@@ -290,6 +291,9 @@ fetchTree () {
 		'jack')
 			getJackCompiler "${tree_name}"
 		;;
+		'jk2radiant')
+			checkoutSvn "${tree_name}" 'https://github.com/jedis/jedioutcast/trunk/utils'
+		;;
 		'map220')
 			cloneGit "${tree_name}" 'https://github.com/FreeSlave/GtkRadiant.git' 'map220'
 		;;
@@ -397,6 +401,13 @@ transTree () {
 			uncrustifyTree "${tree_name}"
 			rewriteString "${tree_name}"
 		;;
+		'jk2radiant')
+			rsyncDir "${original_dir}/${tree_name}/common" "${translated_dir}/${tree_name}/${editor_dir}/common"
+			rsyncDir "${original_dir}/${tree_name}/Libs" "${translated_dir}/${tree_name}/${editor_dir}/libs"
+			rsyncDir "${original_dir}/${tree_name}/Radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
+			uncrustifyTree "${tree_name}"
+			rewriteString "${tree_name}"
+		;;
 		'map220')
 			rsyncDir "${original_dir}/${tree_name}/tools/quake3/common" "${translated_dir}/${tree_name}/${compiler_dir}/common"
 			rsyncDir "${original_dir}/${tree_name}/tools/quake3/q3map2" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
@@ -463,7 +474,7 @@ transTree () {
 updateTree () {
 	tree_name="${1}"
 	case "${tree_name}" in
-		'aaradiant'|'overdose'|'ufoai'|'xreal')
+		'aaradiant'|'jk2radiant'|'overdose'|'ufoai'|'xreal')
 			updateSvn "${tree_name}"
 		;;
 		'bloodmap'|'daemonmap'|'darkradiant'|'etxreal'|'gtkradiant'|'ncustom'|'netradiant'|'map220'|'quake3'|'doom3')

@@ -45,6 +45,7 @@ These are editor trees supported:
 - [DarkRadiant](http://darkradiant.sourceforge.net) from [The Dark Mod](http://www.thedarkmod.com) (CodeReader) _- GtkRadiant fork_
 - [ETXRadiant](https://sourceforge.net/p/xreal/ET-XreaL) from [ET-XreaL](http://www.moddb.com/mods/etxreal) (XreaL) _- DarkRadiant fork_
 - [GtkRadiant](http://icculus.org/gtkradiant) from id Software (TTimo) _- Q3Radiant fork_
+- [JK2Radiant](https://github.com/jedis/jedioutcast/tree/master/utils/Radiant) from Jedi Outcast (Raven) _- QERadiant fork_
 - [NetRadiant](https://gitlab.com/xonotic/netradiant) from [Xonotic](http://xonotic.org/) _- GtkRadiant fork_
 - [NetRadiant Custom](https://github.com/Garux/netradiant-custom) by Garux _- NetRadiant fork_
 - [ODRadiant](https://sourceforge.net/projects/odblur) from [Overdose](http://www.moddb.com/games/overdose) (Odblur) _- GtkRadiant fork_
