@@ -18,10 +18,12 @@ listTree () {
 	darkradiant
 	doom3
 	etxreal
+	gtkradiant
 	jack
 	jk2radiant
+	libradiant
 	map220
-	gtkradiant
+	map-compiler
 	ncustom
 	netradiant
 	overdose
@@ -294,8 +296,14 @@ fetchTree () {
 		'jk2radiant')
 			checkoutSvn "${tree_name}" 'https://github.com/jedis/jedioutcast/trunk/utils'
 		;;
+		'libradiant')
+			cloneGit "${tree_name}" "https://github.com/KILLTUBE/libradiant.git"
+		;;
 		'map220')
 			cloneGit "${tree_name}" 'https://github.com/FreeSlave/GtkRadiant.git' 'map220'
+		;;
+		'map-compiler')
+			cloneGit "${tree_name}" 'https://github.com/isRyven/map-compiler.git'
 		;;
 		'ncustom')
 			cloneGit "${tree_name}" "https://github.com/Garux/netradiant-custom.git"
@@ -383,7 +391,7 @@ transTree () {
 			uncrustifyTree "${tree_name}"
 			rewriteString "${tree_name}"
 		;;
-		'gtkradiant'|'ncustom'|'netradiant')
+		'gtkradiant'|'ncustom'|'netradiant'|'libradiant')
 			rsyncDir "${original_dir}/${tree_name}/contrib" "${translated_dir}/${tree_name}/${editor_dir}/contrib"
 			rsyncDir "${original_dir}/${tree_name}/include" "${translated_dir}/${tree_name}/${editor_dir}/include"
 			rsyncDir "${original_dir}/${tree_name}/libs" "${translated_dir}/${tree_name}/${editor_dir}/libs"
@@ -411,6 +419,12 @@ transTree () {
 		'map220')
 			rsyncDir "${original_dir}/${tree_name}/tools/quake3/common" "${translated_dir}/${tree_name}/${compiler_dir}/common"
 			rsyncDir "${original_dir}/${tree_name}/tools/quake3/q3map2" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
+			uncrustifyTree "${tree_name}"
+			rewriteString "${tree_name}"
+		;;
+		'map-compiler')
+			rsyncDir "${original_dir}/${tree_name}/code/" "${translated_dir}/${tree_name}/${compiler_dir}"
+			mvDir "${translated_dir}/${tree_name}/${compiler_dir}/compiler" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
 			uncrustifyTree "${tree_name}"
 			rewriteString "${tree_name}"
 		;;

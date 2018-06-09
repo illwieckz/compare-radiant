@@ -46,6 +46,7 @@ These are editor trees supported:
 - [ETXRadiant](https://sourceforge.net/p/xreal/ET-XreaL) from [ET-XreaL](http://www.moddb.com/mods/etxreal) (XreaL) _- DarkRadiant fork_
 - [GtkRadiant](http://icculus.org/gtkradiant) from id Software (TTimo) _- Q3Radiant fork_
 - [JK2Radiant](https://github.com/jedis/jedioutcast/tree/master/utils/Radiant) from Jedi Outcast (Raven) _- QERadiant fork_
+- [libradiant](https://github.com/KILLTUBE/libradiant) GtkRadiant as a dll by killtube _- GtkRadiant fork_
 - [NetRadiant](https://gitlab.com/xonotic/netradiant) from [Xonotic](http://xonotic.org/) _- GtkRadiant fork_
 - [NetRadiant Custom](https://github.com/Garux/netradiant-custom) by Garux _- NetRadiant fork_
 - [ODRadiant](https://sourceforge.net/projects/odblur) from [Overdose](http://www.moddb.com/games/overdose) (Odblur) _- GtkRadiant fork_
@@ -69,6 +70,7 @@ These are compiler trees supported (all Q3map2 forks, except Q3map of course):
 - Q3map2 from UrbanTerror (TTimo)
 - Ufo2map from UFO:AI
 - [Map220](https://github.com/FreeSlave/GtkRadiant/tree/map220) (J.A.C.K. changes from XaeroX ported by FreeSlave to GtkRadiant tree)
+- [map-compiler](https://github.com/isRyven/map-compiler) a q3map2 fork extracted from radiant tree (IsRyven) _- NetRadiant fork_
 - Vmapc from Vecxis
 - Xmap2 from [XreaL](https://github.com/raynorpat/xreal/) (RaynorPat)
 
