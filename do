@@ -342,43 +342,34 @@ fetchTree () {
 
 transTree () {
 	tree_name="${1}"
+	match='true'
 	case "${tree_name}" in
 		'aaradiant')
 			rsyncDir "${original_dir}/${tree_name}/include" "${translated_dir}/${tree_name}/${editor_dir}/include"
 			rsyncDir "${original_dir}/${tree_name}/libs" "${translated_dir}/${tree_name}/${editor_dir}/libs"
 			rsyncDir "${original_dir}/${tree_name}/plugins" "${translated_dir}/${tree_name}/${editor_dir}/plugins"
 			rsyncDir "${original_dir}/${tree_name}/radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 			;;
 		'bloodmap')
 			rsyncDir "${original_dir}/${tree_name}/src" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
 			mvDir "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/common" "${translated_dir}/${tree_name}/${compiler_dir}/common"
 			mvDir "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/games" "${translated_dir}/${tree_name}/${compiler_dir}/games"
 			mvDir "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/libs" "${translated_dir}/${tree_name}/${editor_dir}/libs"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 		;;
 		'daemonmap')
 			rsyncDir "${original_dir}/${tree_name}/src/include" "${translated_dir}/${tree_name}/${editor_dir}/include"
 			rsyncDir "${original_dir}/${tree_name}/src/libs" "${translated_dir}/${tree_name}/${editor_dir}/libs"
 			rsyncDir "${original_dir}/${tree_name}/src/tools/common" "${translated_dir}/${tree_name}/${compiler_dir}/common"
 			rsyncDir "${original_dir}/${tree_name}/src/tools/owmap" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 		;;
 		'darkradiant')
 			rsyncDir "${original_dir}/${tree_name}/include" "${translated_dir}/${tree_name}/${editor_dir}/include"
 			rsyncDir "${original_dir}/${tree_name}/libs" "${translated_dir}/${tree_name}/${editor_dir}/libs"
 			rsyncDir "${original_dir}/${tree_name}/plugins" "${translated_dir}/${tree_name}/${editor_dir}/plugins"
 			rsyncDir "${original_dir}/${tree_name}/radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 		;;
 		'doom3')
 			rsyncDir "${original_dir}/${tree_name}/neo/tools/radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 			lowerCaseDir "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 		;;
 		'etxreal')
@@ -388,8 +379,6 @@ transTree () {
 			rsyncDir "${original_dir}/${tree_name}/src/tools/etxradiant/radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 			rsyncDir "${original_dir}/${tree_name}/src/tools/common" "${translated_dir}/${tree_name}/${compiler_dir}/common"
 			rsyncDir "${original_dir}/${tree_name}/src/tools/etxmap" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 		;;
 		'gtkradiant'|'ncustom'|'netradiant'|'libradiant')
 			rsyncDir "${original_dir}/${tree_name}/contrib" "${translated_dir}/${tree_name}/${editor_dir}/contrib"
@@ -399,73 +388,51 @@ transTree () {
 			rsyncDir "${original_dir}/${tree_name}/radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 			rsyncDir "${original_dir}/${tree_name}/tools/quake3/common" "${translated_dir}/${tree_name}/${compiler_dir}/common"
 			rsyncDir "${original_dir}/${tree_name}/tools/quake3/q3map2" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 		;;
 		'jack')
 			rsyncDir "${original_dir}/${tree_name}/q3map2/src" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
 			mvDir "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/common" \
 				"${translated_dir}/${tree_name}/${compiler_dir}/common"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 		;;
 		'jk2radiant')
 			rsyncDir "${original_dir}/${tree_name}/common" "${translated_dir}/${tree_name}/${editor_dir}/common"
 			rsyncDir "${original_dir}/${tree_name}/Libs" "${translated_dir}/${tree_name}/${editor_dir}/libs"
 			rsyncDir "${original_dir}/${tree_name}/Radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 		;;
 		'map220')
 			rsyncDir "${original_dir}/${tree_name}/tools/quake3/common" "${translated_dir}/${tree_name}/${compiler_dir}/common"
 			rsyncDir "${original_dir}/${tree_name}/tools/quake3/q3map2" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 		;;
 		'map-compiler')
 			rsyncDir "${original_dir}/${tree_name}/code/" "${translated_dir}/${tree_name}/${compiler_dir}"
 			mvDir "${translated_dir}/${tree_name}/${compiler_dir}/compiler" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 		;;
 		'overdose')
 			rsyncDir "${original_dir}/${tree_name}/ODRadiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 			rsyncDir "${original_dir}/${tree_name}/ODMap" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 			cppToC "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
 		;;
 		'qio')
 			rsyncDir "${original_dir}/${tree_name}/q3radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 			lowerCaseDir "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 		;;
 		'quake3')
 			rsyncDir "${original_dir}/${tree_name}/q3radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 			rsyncDir "${original_dir}/${tree_name}/q3map" "${translated_dir}/${tree_name}/${compiler_dir}/q3map"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 			lowerCaseDir "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 		;;
 		'ufoai')
 			rsyncDir "${original_dir}/${tree_name}/radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 			rsyncDir "${original_dir}/${tree_name}/ufo2map" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
 			cppToC "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 			mvDir "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/common" "${translated_dir}/${tree_name}/${compiler_dir}/common"
 		;;
 		'urbanterror')
 			rsyncDir "${original_dir}/gtkradiant/tools/urt/tools/quake3/q3map2" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 		;;
 		'vecxis')
 			rsyncDir "${original_dir}/${tree_name}/vradiant" "${translated_dir}/${tree_name}/${editor_dir}"
 			rsyncDir "${original_dir}/${tree_name}/vmapc" "${translated_dir}/${tree_name}/${compiler_dir}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 		;;
 		'xreal')
 			rsyncDir "${original_dir}/${tree_name}/gtkradiant/include" "${translated_dir}/${tree_name}/${editor_dir}/include"
@@ -474,15 +441,20 @@ transTree () {
 			rsyncDir "${original_dir}/${tree_name}/gtkradiant/radiant" "${translated_dir}/${tree_name}/${editor_dir}/${editor_name}"
 			rsyncDir "${original_dir}/${tree_name}/common" "${translated_dir}/${tree_name}/${compiler_dir}/common"
 			rsyncDir "${original_dir}/${tree_name}/xmap2" "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}"
-			uncrustifyTree "${tree_name}"
-			rewriteString "${tree_name}"
 			mvFile "${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/xmap2.h" \
 				"${translated_dir}/${tree_name}/${compiler_dir}/${compiler_name}/${compiler_name}.h"
 		;;
 		*)
+			match='false'
 			printError "unknown tree: ${tree_name}"
 		;;
 	esac
+
+	if "${match}"
+	then
+		uncrustifyTree "${tree_name}"
+		rewriteString "${tree_name}"
+	fi
 }
 
 updateTree () {
