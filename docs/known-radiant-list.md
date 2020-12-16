@@ -1,0 +1,38 @@
+Known Radiant list
+==================
+
+- AARadiant (from Alien Arena project, NetRadiant fork)
+- CoDRadiant (from Call of Duty project)
+- DarkRadiant (from The Dark Mod project, for Doom 3 engine based games, GtkRadiant 1.5.0 fork)
+- Embrace (from Vampire: The Masquerade – Redemption project, part of Nod SDK, QERadiant fork)
+- ETXRadiant (from ET:XreaL project, DarkRadiant fork)
+- GtkRadiant (the 1.4/1.6 branch, multiplatform port of QERadiant using GTK gui toolkit instead of MFC one)
+- GtkRadiant (the 1.5 branch)
+- HMF2Radiant (from Heavy Metal: FAKK2 project, part of FAKKTools, the binary is named Q3Radiant, and advertises itself as QERadiant in some places)
+- JK2Radiant (from Jedi Knight II: Jedi Outcast project)
+- KpQ3Radiant (from KingpinQ3 project, a project to redo Kingpin on XreaL)
+- KpRadiant (from Kingpin: Life of Crime project, remaining web pages makes strong references to QERadiant)
+- MacRadiant (GTKRadiant port to Mac OS X)
+- MoHRadiant (MOHAATools, from Medal of Honnor: Allied Assault project, QERadiant fork)
+- NetRadiant (community fork of GTKRadiant 1.5, advertised as “A Stabilized Q3 Map Editor” in former icculus' repository with a former website hosted by Alien Trap, now hosted and somewhat maintained by the Xonotic team)
+- NetRadiant Custom (fork by Garux, hard to merge)
+- ODRadiant (from OverDose project, there is some GTKRadiant traces in it)
+- OWRadiant (from OWEngine project, a renamed Qio engine reusing OpenWolf name)
+- QERadiant (original public radiant based on QE4, QE stands for Quake Ed the in-house editor for Quake¹, QE4 was the in-house Quake 2 level editor)
+- Q3Radiant (former name for QERadiant, in-house Quake 3 level editor)
+- QioRadiant (from Qio Engine project)
+- QtRadiant (the one by Ensiform)
+- QtRadiant (the one by Radegast)
+- Radiant (from Doom 3 source tree)
+- SDRadiant (from Wolfenstein: Enemy Territory project, SD stands for Splash Dammage)
+- SoFRadiant (from Soldier of Fortune project)
+- ÜberRadiant (from Star Trek: Elite Force 2 project, Über stands for ÜberGames)
+- UFORadiant (from UFO:AI project, based on an old DarkRadiant fork)
+- VolatileRadiant (from Volatile3D II project, XaeroX said it is based on Q3Radiant, also named VolatileLevelDesignSDK)
+- VRadiant (from Vecxis project, NetRadiant fork)
+- WolfRadiant (from ET:Legacy project)
+- XreaLRadiant (from XreaL project)
+- ZeroRadiant (code name for GTKRadiant 1.6 which is a successor to GTKRadiant 1.4)
+
+______  
+¹ Fun stuff, QuakeEd (from which the QE in QERadiant comes from) was running on NeXTSTEP, so everytime you write down the `qer_editorimage` keyword in a shader, it's because of that 20 years old in-house Quake level editor running on NeXTSTEP.

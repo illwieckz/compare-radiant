@@ -1,0 +1,40 @@
+Q3Radiant
+(in─house Quake III editor, dead)
+    │
+    v
+QERadiant
+(closed source public radiant, dead)
+    │
+    v
+GtkRadiant 1.4
+(Open Source QERadiant port to GTK, dead)
+    │          
+    ├─────────────────────────────────────────────────────────────────────> ZeroRadiant
+    │                                                                       (in─house Quake Live (Quake Zero) editor, dead)
+    │                                                                           │
+    │                                                                           v
+    │                                                                       GtkRadiant 1.6
+    v                                                                       (public release (hence open source) of ZeroRadiant, alive)
+GtkRadiant 1.5                                                                  │
+(Open Source community improvement, dead)                                       │
+    │                                                                           │
+    v                                                                           │
+NetRadiant                                                                      │
+(Open Source community improvement, alive)                                      │
+    │                                                                           │
+    ├────────────┐                                                              │
+    │            │                                                              │
+    │       DarkRadiant (GTK)                                                   │
+    │            │                                                              │
+    │            │                                                              │
+    │            ├──────────────────────────────┐                               │
+    │            │                              │                               │
+    │            │                              v                               │
+    │            │                          UFORadiant                          │
+    │            v                          (UFO:AI dedicated fork, alive)      │
+    │        DarkRadiant (WxWidget)             │                               │
+    │        (Doom3 dedicated fork, alive)      │                               │
+    │            │                              │                               │
+    │            │                              │                               │
+    v            v                              v                               v
+NetRadiant   DarkRadiant                    UFORadiant                      GtkRadiant
