@@ -34,5 +34,5 @@ Known Radiant list
 - XreaLRadiant (from XreaL project)
 - ZeroRadiant (code name for GTKRadiant 1.6 which is a successor to GTKRadiant 1.4)
 
-______  
+______   
 ¹ Fun stuff, QuakeEd (from which the QE in QERadiant comes from) was running on NeXTSTEP, so everytime you write down the `qer_editorimage` keyword in a shader, it's because of that 20 years old in-house Quake level editor running on NeXTSTEP.
