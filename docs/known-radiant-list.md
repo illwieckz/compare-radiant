@@ -36,7 +36,7 @@ Known Radiant list
 - VRadiant (from Vecxis project, NetRadiant fork)
 - WolfRadiant (from ET:Legacy project)
 - WorldSpawn (by VeraVisions, NetRadiant fork)
-- XreaLRadiant (from XreaL project)
+- XreaLRadiant (from XreaL project, NetRadiant fork)
 - ZeroRadiant (code name for GTKRadiant 1.6 which is a successor to GTKRadiant 1.4)
 
 ______   
