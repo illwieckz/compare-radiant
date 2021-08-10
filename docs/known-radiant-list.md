@@ -13,7 +13,7 @@ Known Radiant list
 - HMF2Radiant (from Heavy Metal: FAKK2 project, part of FAKKTools, the binary is named Q3Radiant, and advertises itself as QERadiant in some places)
 - IW3xRadiant (Call of Duty 4 Radiant modification)
 - JK2Radiant (from Jedi Knight II: Jedi Outcast project)
-- KpQ3Radiant (from KingpinQ3 project, a project to redo Kingpin on XreaL)
+- KpQ3Radiant (from KingpinQ3 project, a project to redo Kingpin on XreaL, DarkRadiant fork)
 - KpRadiant (from Kingpin: Life of Crime project, remaining web pages makes strong references to QERadiant)
 - LinRadiant (NetRadiant fork)
 - MacRadiant (GTKRadiant port to Mac OS X)
