@@ -1,7 +1,7 @@
 Known Radiant list
 ==================
 
-42 Radiant tools are currently listed, some may be yet to be heard about:
+42 Radiant tools are currently listed, some are not free and open source, some others may still be to be heard about:
 
 - [AARadiant](https://github.com/ECToo/aa3rdparty), from Alien Arena project, NetRadiant fork
 - CoDRadiant, from Call of Duty project, GtkRadiant fork
